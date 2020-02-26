@@ -3,18 +3,18 @@ class Mandelbrot:
         self.width = width
         self.height = height
 
-        self.minX = -size  ##Start of
-        self.minY = -size  ##coordinate system
+        self.minX = -size  # Start of
+        self.minY = -size  # Coordinate system
 
-        self.maxX = size  ##End of
-        self.maxY = size  # coordintae system
+        self.maxX = size  # End of
+        self.maxY = size  # Coordintae system
 
-        self.incriment = size / width  #inkrement of coordinate system
+        self.incriment = size / width  # Inkrement of coordinate system
 
     def mandel_eq(self, x, y, a=0, b=0, counter=0):
-        if abs(a) + abs(b) > 20:  #or some value that tends to infinity
+        if abs(a) + abs(b) > 20:  # Or some value that tends to infinity
             return False
-        if counter > 100:  #doesn't go to infinity
+        if counter > 100:  # Doesn't go to infinity
             return True
         a = a ** 2 - b ** 2 + x  # Real component on x axis
         b = 2 * a * b + y  #Imaginary component y axis
