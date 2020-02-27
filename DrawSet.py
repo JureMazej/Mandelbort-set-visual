@@ -43,12 +43,14 @@ while not done:
     for x in range(0, windowX, 1):
         for y in range(0, windowY, 1):
             x0 = map_pixel(x, 0, windowX, -2, 2)
-            y0 = map_pixel(y, 0, windowX, -2, 2)
-            m = Mandelbrot(windowX, windowY)
-            if m.mandel_eq(x0, y0):
-                screen.set_at((x, y), blue)
+            y0 = map_pixel(y, 0, windowY, -2, 2)
+            m = Mandelbrot()
+            iterations = m.mandel_eq(x0, y0)
+            if iterations == 0:
+                screen.set_at((x, y), (255, 255, 255))
             else:
-                screen.set_at((x, y), red)
+                bright = int(map_pixel(iterations, 0, 100, 0, 255))
+                screen.set_at((x, y), (bright, bright, bright))
 
     pygame.display.flip()  # Update
     clock.tick(1)
